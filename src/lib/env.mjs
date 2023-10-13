@@ -7,8 +7,10 @@ export const env = createEnv({
     NEXTAUTH_SECRET: z.string().min(1),
     GITHUB_ID: z.string().min(1),
     GITHUB_SECRET: z.string().min(1),
+    UPLOADTHING_SECRET: z.string().min(1),
+    UPLOADTHING_APP_ID: z.string().min(1),
     REDIS_URL: z.string().url().min(1),
-    REDIS_SECRET: z.string().min(1)
+    REDIS_SECRET: z.string().min(1),
   },
   client: {},
   // For Next.js >= 13.4.4, you only need to destructure client variables:

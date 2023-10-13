@@ -1,7 +1,10 @@
+import type { ReactNode } from "react";
+
 import { Providers } from "@/components/providers";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,13 +15,27 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  authModal,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
+  authModal: ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Providers>{children}</Providers>
+    <html
+      lang="en"
+      className={cn(
+        "bg-background text-foreground antialiased",
+        inter.className,
+      )}
+    >
+      <body className={cn("min-h-screen pt-12 antialiased", inter.className)}>
+        <Providers>
+          {authModal}
+
+          <div className="container max-w-7xl mx-auto h-full pt-12">
+            {children}
+          </div>
+        </Providers>
       </body>
     </html>
   );
