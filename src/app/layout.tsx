@@ -5,6 +5,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
+import NavBar from "./_components/nav-bar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,12 +25,13 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        "bg-background text-foreground antialiased",
+        "dark bg-background text-foreground antialiased",
         inter.className,
       )}
     >
       <body className={cn("min-h-screen pt-12 antialiased", inter.className)}>
         <Providers>
+          <NavBar />
           {authModal}
 
           <div className="container max-w-7xl mx-auto h-full pt-12">
