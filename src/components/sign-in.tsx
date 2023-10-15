@@ -1,8 +1,8 @@
 import { Icons } from "@/components/icons";
-import UserAuthForm from "@/components/user-auth-form";
+import { UserAuthForm } from "@/components/user-auth-form";
 import Link from "next/link";
 
-export default function SignIn() {
+export function SignIn() {
   return (
     <div className="container mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[400px]">
       <div className="flex flex-col space-y-2 text-center">

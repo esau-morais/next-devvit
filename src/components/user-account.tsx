@@ -12,6 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { HTMLAttributes } from "react";
+import { UserAvatar } from "./user-avatar";
 
 type UserAccountNavProps = HTMLAttributes<HTMLDivElement> & {
   user: Pick<User, "name" | "image" | "email">;
@@ -20,7 +21,12 @@ type UserAccountNavProps = HTMLAttributes<HTMLDivElement> & {
 export function UserAccountNav({ user }: UserAccountNavProps) {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>User</DropdownMenuTrigger>
+      <DropdownMenuTrigger>
+        <UserAvatar
+          user={{ name: user.name || null, image: user.image || null }}
+          className="h-8 w-8"
+        />
+      </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <div className="flex items-center justify-start gap-2 p-2">
           <div className="flex flex-col space-y-1 leading-none">
@@ -38,7 +44,7 @@ export function UserAccountNav({ user }: UserAccountNavProps) {
         </DropdownMenuItem>
 
         <DropdownMenuItem asChild>
-          <Link href="/r/create">Create Community</Link>
+          <Link href="/d/create">Create Community</Link>
         </DropdownMenuItem>
 
         <DropdownMenuItem asChild>

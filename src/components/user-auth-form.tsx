@@ -8,10 +8,7 @@ import { Github, Loader2 } from "lucide-react";
 
 type UserAuthFormProps = HTMLAttributes<HTMLDivElement>;
 
-export default function UserAuthForm({
-  className,
-  ...props
-}: UserAuthFormProps) {
+export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const loginWithGitHub = async () => {
