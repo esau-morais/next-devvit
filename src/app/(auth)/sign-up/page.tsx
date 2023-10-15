@@ -1,4 +1,4 @@
-import SignUp from "@/components/sign-up";
+import { SignUp } from "@/components/sign-up";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 
