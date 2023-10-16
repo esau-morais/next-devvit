@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 
 import { authOptions, getAuthSession } from "@/lib/auth";
+import { UserNameForm } from "@/components/user-name-form";
 
 export const metadata = {
   title: "Settings",
@@ -19,7 +20,14 @@ export default async function SettingsPage() {
       <div className="grid items-start gap-8">
         <h1 className="font-bold text-3xl md:text-4xl">Settings</h1>
 
-        <div className="grid gap-10"></div>
+        <div className="grid gap-10">
+          <UserNameForm
+            user={{
+              id: session.user.id,
+              username: session.user.username || "",
+            }}
+          />
+        </div>
       </div>
     </div>
   );
