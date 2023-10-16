@@ -14,46 +14,47 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
+import { Label } from "./ui/label";
 
 export function CommunityForm() {
   const { pending } = useFormStatus();
   const router = useRouter();
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Create a Community</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <form action={createCommunity}>
-          <div className="grid w-full items-center gap-4">
-            <div>
-              <p className="text-lg font-medium">Name</p>
-              <p className="text-xs pb-2">
-                Community names including capitalization cannot be changed.
-              </p>
-              <div className="relative">
-                <p className="absolute text-sm left-0 w-8 inset-y-0 grid place-items-center text-zinc-400">
-                  d/
-                </p>
-                <Input id="name" name="name" className="pl-6" />
+    <form action={createCommunity}>
+      <Card>
+        <CardHeader>
+          <CardTitle>Create a Community</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="grid w-full max-w-sm items-center gap-1.5">
+            <Label htmlFor="name">Name</Label>
+            <div className="relative grid gap-1">
+              <div className="absolute top-0 left-0 w-8 h-10 grid place-items-center">
+                <span className="text-sm text-zinc-400">d/</span>
               </div>
+              <Input
+                id="name"
+                name="name"
+                className="w-[400px] pl-6"
+                size={32}
+              />
             </div>
           </div>
-        </form>
-      </CardContent>
-      <CardFooter className="flex justify-end gap-4">
-        <Button disabled={pending} onClick={() => router.back()}>
-          Cancel
-        </Button>
-        <Button type="submit" disabled={pending}>
-          {pending ? (
-            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          ) : (
-            "Create Community"
-          )}
-        </Button>
-      </CardFooter>
-    </Card>
+        </CardContent>
+        <CardFooter className="flex justify-end gap-4">
+          <Button disabled={pending} onClick={() => router.back()}>
+            Cancel
+          </Button>
+          <Button type="submit" disabled={pending}>
+            {pending ? (
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            ) : (
+              "Create Community"
+            )}
+          </Button>
+        </CardFooter>
+      </Card>
+    </form>
   );
 }
