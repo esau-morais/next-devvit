@@ -22,7 +22,7 @@ export default async function HomePage() {
           </CardHeader>
           <CardContent>
             <p>
-              Your personal Breadit frontpage. Come here to check in with your
+              Your personal Devvit frontpage. Come here to check in with your
               favorite communities.
             </p>
           </CardContent>
