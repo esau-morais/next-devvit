@@ -3,11 +3,12 @@ import "./src/lib/env.mjs";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    serverActions: true
+    typedRoutes: true,
+    serverActions: true,
   },
   images: {
-    domains: ['avatars.githubusercontent.com']
-  }
+    domains: ["avatars.githubusercontent.com"],
+  },
 };
 
 export default nextConfig;

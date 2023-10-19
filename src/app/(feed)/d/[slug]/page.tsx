@@ -1,3 +1,4 @@
+import { CreatePostCard } from "@/components/create-post-card";
 import Feed from "@/components/feed";
 import { getAuthSession } from "@/lib/auth";
 import { LIMIT } from "@/lib/constants";
@@ -40,6 +41,7 @@ export default async function SubdevvitPage({ params }: SubdevvitPageProps) {
       <h1 className="font-bold text-3xl md:text-4xl h-14">
         d/{subdevvit.name}
       </h1>
+      <CreatePostCard session={session} />
       <Feed initialPosts={subdevvit.posts} subdevvitName={subdevvit.name} />
     </>
   );
